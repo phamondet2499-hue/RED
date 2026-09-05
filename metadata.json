@@ -1,0 +1,6 @@
+{
+  "name": "เบาหวาน แคร์พลัส (Diabetes Care+)",
+  "description": "แอปพลิเคชันดูแลสุขภาพผู้ป่วยเบาหวาน บันทึกน้ำตาล ฉีดอินซูลิน เตือนทานยา นับคาร์บ และนัดหมายแพทย์",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
