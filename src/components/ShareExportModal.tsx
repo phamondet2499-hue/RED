@@ -217,26 +217,27 @@ export const ShareExportModal: React.FC<ShareExportModalProps> = ({
                 </button>
               </div>
 
-              {/* Option 2: Standalone HTML Report */}
-              <div className="bg-slate-950/60 border border-slate-800 rounded-2xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 hover:border-slate-700 transition">
+              {/* Option 2: Standalone HTML Companion & Practical Guide */}
+              <div className="bg-slate-950/60 border border-teal-800/60 rounded-2xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 hover:border-teal-500/50 transition">
                 <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-cyan-500/15 text-cyan-400 flex items-center justify-center shrink-0">
+                  <div className="w-10 h-10 rounded-xl bg-teal-500/15 text-teal-300 flex items-center justify-center shrink-0">
                     <FileText className="w-5 h-5" />
                   </div>
                   <div>
-                    <div className="flex items-center gap-2">
-                      <h4 className="font-bold text-white text-sm">ไฟล์รายงานสรุปผลเดี่ยว (.html)</h4>
-                      <span className="text-[10px] px-1.5 py-0.5 rounded bg-cyan-500/20 text-cyan-400 font-mono">ส่งต่อทาง LINE ได้</span>
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <h4 className="font-bold text-white text-sm">ไฟล์คู่มือ & บันทึกสุขภาพพกพา (.html)</h4>
+                      <span className="text-[10px] px-1.5 py-0.5 rounded bg-teal-500/20 text-teal-300 font-semibold">ออฟไลน์ 100% ครบทุกหมวด</span>
+                      <span className="text-[10px] px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 font-semibold">ช่วยผู้ป่วยยากจน</span>
                     </div>
-                    <p className="text-xs text-slate-400 mt-0.5 leading-relaxed">
-                      ไฟล์หน้าเว็บสรุปผลพกพา เปิดดูได้บนมือถือหรือคอมพิวเตอร์ทุกเครื่องแม้ออฟไลน์ พร้อมสถิติ TIR และตารางยา
+                    <p className="text-xs text-slate-300 mt-0.5 leading-relaxed">
+                      มีคู่มืออาหารประหยัด, ผักพื้นบ้าน, เทคนิคเก็บอินซูลินไร้ตู้เย็น, ตรวจเท้า, กฎ 15-15 และ<b>มีฟอร์มบันทึกค่าน้ำตาลในตัว</b> บันทึกลงมือถือได้เลยโดยไม่ต้องมีอินเทอร์เน็ต
                     </p>
                   </div>
                 </div>
 
                 <button
                   onClick={handleExportHTML}
-                  className="w-full sm:w-auto px-4 py-2 bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-xs rounded-xl shadow transition flex items-center justify-center gap-2 shrink-0 active:scale-95"
+                  className="w-full sm:w-auto px-4 py-2 bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-500 hover:to-emerald-500 text-white font-bold text-xs rounded-xl shadow transition flex items-center justify-center gap-2 shrink-0 active:scale-95"
                 >
                   <Download className="w-4 h-4" /> ดาวน์โหลด .html
                 </button>

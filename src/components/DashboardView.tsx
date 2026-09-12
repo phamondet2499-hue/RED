@@ -36,6 +36,7 @@ import { AppData, GlucoseRecord, MedicationSchedule, MedicationLog } from '../ty
 import { calculateGlucoseStats, classifyGlucose, INJECTION_SITES, PERIOD_LABELS } from '../utils/diabetesCalc';
 import { soundFx } from '../utils/sound';
 import confetti from 'canvas-confetti';
+import { DailyDiabetesTip } from './DailyDiabetesTip';
 
 interface DashboardViewProps {
   data: AppData;
@@ -305,6 +306,9 @@ export function DashboardView({
           </div>
         </div>
       </div>
+
+      {/* Daily Diabetes Evidence-Based Tip Component */}
+      <DailyDiabetesTip data={data} onOpenShareModal={onOpenShareModal} />
 
       {/* 4 Core Health Metric Cards */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3.5 lg:gap-4">
