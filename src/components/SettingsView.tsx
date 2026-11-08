@@ -254,6 +254,16 @@ export function SettingsView({
           </div>
 
           <div>
+            <label className="block text-xs font-semibold text-slate-300 mb-1">หลังอาหารสูงสุด (mg/dL)</label>
+            <input
+              type="number"
+              value={formData.targetPostMealMax || 180}
+              onChange={(e) => setFormData({ ...formData, targetPostMealMax: Number(e.target.value) })}
+              className="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-sm text-amber-400 font-mono font-bold"
+            />
+          </div>
+
+          <div>
             <label className="block text-xs font-semibold text-slate-300 mb-1">เป้าหมาย HbA1c (%)</label>
             <input
               type="number"
@@ -271,6 +281,46 @@ export function SettingsView({
               value={formData.waterDailyTargetMl}
               onChange={(e) => setFormData({ ...formData, waterDailyTargetMl: Number(e.target.value) })}
               className="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-sm text-cyan-400 font-mono font-bold"
+            />
+          </div>
+
+          <div>
+            <label className="block text-xs font-semibold text-slate-300 mb-1">น้ำหนักตัว (กก.)</label>
+            <input
+              type="number"
+              value={formData.weightKg || 68}
+              onChange={(e) => setFormData({ ...formData, weightKg: Number(e.target.value) })}
+              className="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-sm text-white font-mono font-bold"
+            />
+          </div>
+
+          <div>
+            <label className="block text-xs font-semibold text-slate-300 mb-1">เป้าหมายคาร์บ (กรัม/วัน)</label>
+            <input
+              type="number"
+              value={formData.carbDailyTargetGrams || 135}
+              onChange={(e) => setFormData({ ...formData, carbDailyTargetGrams: Number(e.target.value) })}
+              className="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-sm text-amber-400 font-mono font-bold"
+            />
+          </div>
+
+          <div>
+            <label className="block text-xs font-semibold text-slate-300 mb-1">อัตราส่วน ICR (กรัมคาร์บ/1U)</label>
+            <input
+              type="number"
+              value={formData.customIcr || 12}
+              onChange={(e) => setFormData({ ...formData, customIcr: Number(e.target.value) })}
+              className="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-sm text-purple-400 font-mono font-bold"
+            />
+          </div>
+
+          <div>
+            <label className="block text-xs font-semibold text-slate-300 mb-1">ความไวอินซูลิน ISF (mg/dL/1U)</label>
+            <input
+              type="number"
+              value={formData.customIsf || 45}
+              onChange={(e) => setFormData({ ...formData, customIsf: Number(e.target.value) })}
+              className="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-sm text-emerald-400 font-mono font-bold"
             />
           </div>
         </div>

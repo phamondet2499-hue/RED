@@ -832,12 +832,21 @@ export function DashboardView({
                 </span>
               </div>
 
-              <button
-                onClick={() => onNavigate('glucose')}
-                className="text-xs text-emerald-400 hover:text-emerald-300 font-semibold flex items-center gap-1"
-              >
-                ดูประวัติ & กราฟละเอียด <ChevronRight className="w-3.5 h-3.5" />
-              </button>
+              <div className="flex items-center gap-2.5 flex-wrap">
+                <button
+                  onClick={() => onNavigate('insights')}
+                  className="text-xs text-cyan-400 hover:text-cyan-300 font-semibold flex items-center gap-1 bg-cyan-950/50 border border-cyan-800/60 px-2.5 py-1 rounded-xl transition hover:bg-cyan-900/40"
+                >
+                  <TrendingUp className="w-3.5 h-3.5 text-cyan-400" />
+                  วิเคราะห์ความสัมพันธ์กับยา (Insights)
+                </button>
+                <button
+                  onClick={() => onNavigate('glucose')}
+                  className="text-xs text-emerald-400 hover:text-emerald-300 font-semibold flex items-center gap-1"
+                >
+                  ดูประวัติละเอียด <ChevronRight className="w-3.5 h-3.5" />
+                </button>
+              </div>
             </div>
           </div>
 

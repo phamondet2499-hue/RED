@@ -158,6 +158,11 @@ export interface UserProfile {
   emergencyContactPhone: string;
   doctorName: string;
   hospitalName: string;
+  weightKg?: number; // น้ำหนักตัว (กก.) สำหรับคำนวณ TDD
+  totalDailyInsulinUnits?: number; // ปริมาณอินซูลินรวมต่อวัน (TDD)
+  customIcr?: number; // อัตราส่วน Insulin-to-Carb Ratio (เช่น 1:12 หรือ 1:15)
+  customIsf?: number; // Insulin Sensitivity Factor (ISF mg/dL drop per unit)
+  preferredIcrRule?: '500' | '450' | 'carb_target';
 }
 
 export interface AppData {

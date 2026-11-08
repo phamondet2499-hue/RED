@@ -606,6 +606,20 @@ export function exportOfflineDiabetesCompanionHTML(data: AppData, days = 30): vo
         <!-- Meds injected by JS -->
       </div>
 
+      <!-- ICR Guide Box -->
+      <div style="margin-top: 16px; background: #fdf4ff; border: 1px solid #f0abfc; border-radius: 16px; padding: 18px;">
+        <h3 style="color: #86198f; font-size: 16px; margin-bottom: 6px;">💉 การคำนวณอัตราส่วนอินซูลินต่อคาร์บ (Insulin-to-Carb Ratio : ICR)</h3>
+        <p style="font-size: 13px; color: #701a75; line-height: 1.6;">
+          สำหรับผู้ที่ใช้อินซูลินออกฤทธิ์เร็วคุมมื้ออาหาร (เช่น NovoRapid, Humalog, Apidra):
+        </p>
+        <ul style="margin: 8px 0 0 20px; font-size: 13px; color: #701a75; line-height: 1.7;">
+          <li><b>สูตรกฎ 500:</b> <span style="font-family: monospace; background: #fae8ff; padding: 2px 6px; border-radius: 6px;">ICR = 500 ÷ อินซูลินรวมต่อวัน (TDD)</span></li>
+          <li><b>ตัวอย่าง:</b> หากฉีดอินซูลินรวมวันละ 26 ยูนิต → ICR = 500 ÷ 26 ≈ <b>19 กรัม</b> (อินซูลิน 1 ยูนิตคุมคาร์บได้ 19 กรัม หรือข้าวสวย ~1.3 ทัพพี)</li>
+          <li><b>การคำนวณขนาดยาฉีด:</b> <span style="font-family: monospace; background: #fae8ff; padding: 2px 6px; border-radius: 6px;">ขนาดยา = คาร์โบไฮเดรตในมื้อ (กรัม) ÷ ICR</span></li>
+          <li><b>สำคัญ:</b> ผู้ป่วยต้องปรึกษาแพทย์หรือทีมให้ความรู้เบาหวานเพื่อกำหนดอัตราส่วนเฉพาะบุคคลอย่างปลอดภัย</li>
+        </ul>
+      </div>
+
       <div style="margin-top: 16px; padding: 14px; background: #fffbeb; border: 1px solid #fde68a; border-radius: 12px; font-size: 13px; color: #92400e;">
         ⚠️ <b>ข้อห้ามสำคัญ:</b> ห้ามหยุดยาหรือปรับขนาดยาเองเด็ดขาด แม้ผลตรวจน้ำตาลจะลดลงแล้ว เพราะยาช่วยประคองตับอ่อนและป้องกันโรคไตเสื่อมระยะยาว
       </div>

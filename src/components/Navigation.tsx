@@ -3,6 +3,7 @@ import {
   LayoutDashboard, 
   Activity, 
   Pill, 
+  TrendingUp,
   Utensils, 
   Calendar, 
   HeartHandshake, 
@@ -14,6 +15,7 @@ export type NavTab =
   | 'dashboard'
   | 'glucose'
   | 'medication'
+  | 'insights'
   | 'food'
   | 'appointments'
   | 'selfcare'
@@ -31,6 +33,7 @@ export function Navigation({ currentTab, onTabChange, pendingMedsCount }: Naviga
     { id: 'dashboard', label: 'ภาพรวมสุขภาพ', icon: LayoutDashboard },
     { id: 'glucose', label: 'ระดับน้ำตาล', icon: Activity },
     { id: 'medication', label: 'ยา & อินซูลิน', icon: Pill, badge: pendingMedsCount > 0 ? pendingMedsCount : undefined },
+    { id: 'insights', label: 'วิเคราะห์แนวโน้ม & ยา (Insights)', icon: TrendingUp },
     { id: 'food', label: 'อาหาร & คาร์บ', icon: Utensils },
     { id: 'appointments', label: 'นัดพบแพทย์', icon: Calendar },
     { id: 'selfcare', label: 'ดูแลตัวเอง & เท้า', icon: HeartHandshake },

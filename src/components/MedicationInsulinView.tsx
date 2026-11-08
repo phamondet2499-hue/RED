@@ -14,9 +14,19 @@ import {
   Layers,
   MapPin
 } from 'lucide-react';
-import { MedicationSchedule, MedicationLog, InjectionSite, MedicationType } from '../types';
+import { 
+  MedicationSchedule, 
+  MedicationLog, 
+  InjectionSite, 
+  MedicationType, 
+  UserProfile, 
+  GlucoseRecord, 
+  VitalsRecord 
+} from '../types';
 import { INJECTION_SITES, SiteInfo } from '../utils/diabetesCalc';
+import { DEFAULT_PROFILE } from '../utils/storage';
 import { soundFx } from '../utils/sound';
+import { InsulinCarbRatioCalculator } from './InsulinCarbRatioCalculator';
 
 interface MedicationInsulinViewProps {
   schedules: MedicationSchedule[];
@@ -25,6 +35,10 @@ interface MedicationInsulinViewProps {
   onDeleteSchedule: (id: string) => void;
   onLogMedication: (log: Omit<MedicationLog, 'id'>) => void;
   onToggleScheduleActive: (id: string) => void;
+  profile?: UserProfile;
+  glucoseLogs?: GlucoseRecord[];
+  vitalsLogs?: VitalsRecord[];
+  onUpdateProfile?: (profile: UserProfile) => void;
 }
 
 export function MedicationInsulinView({
@@ -34,6 +48,10 @@ export function MedicationInsulinView({
   onDeleteSchedule,
   onLogMedication,
   onToggleScheduleActive,
+  profile = DEFAULT_PROFILE,
+  glucoseLogs = [],
+  vitalsLogs = [],
+  onUpdateProfile,
 }: MedicationInsulinViewProps) {
   const todayStr = new Date().toISOString().split('T')[0];
   const [selectedDate, setSelectedDate] = useState<string>(todayStr);
@@ -300,6 +318,15 @@ export function MedicationInsulinView({
           </div>
         </form>
       )}
+
+      {/* Insulin-to-Carb Ratio (ICR) Calculator & Meal Bolus Simulator */}
+      <InsulinCarbRatioCalculator
+        profile={profile}
+        schedules={schedules}
+        glucoseLogs={glucoseLogs}
+        vitalsLogs={vitalsLogs}
+        onUpdateProfile={onUpdateProfile}
+      />
 
       {/* Main Grid: Today's Checklist + Insulin Injection Site Rotation Map */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">

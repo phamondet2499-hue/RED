@@ -19,6 +19,11 @@ export const DEFAULT_PROFILE: UserProfile = {
   emergencyContactPhone: '081-234-5678',
   doctorName: 'นพ. วรพงษ์ เกียรติวิทยา (อายุรแพทย์ต่อมไร้ท่อ)',
   hospitalName: 'โรงพยาบาลจุฬาลงกรณ์',
+  weightKg: 68,
+  totalDailyInsulinUnits: 26,
+  customIcr: 12,
+  customIsf: 45,
+  preferredIcrRule: '500',
 };
 
 // Generate realistic seed data for immediate clinical richness
@@ -116,14 +121,15 @@ export function generateSeedData(): AppData {
 
     // Post-meal glucose (some days)
     if (i % 2 === 0) {
-      const postMealVal = Math.floor(135 + Math.random() * 35);
+      // Day 4 has a spike due to a skipped mealtime insulin dose
+      const postMealVal = i === 4 ? 208 : Math.floor(135 + Math.random() * 25);
       glucoseLogs.push({
         id: `gl_p_${i}`,
         date: dStr,
         time: '13:30',
         period: 'after_lunch',
         value: postMealVal,
-        note: 'หลังทานข้าวราดแกง',
+        note: i === 4 ? 'ลืมฉีดอินซูลินมื้ออาหาร น้ำตาลดีดสูง' : 'หลังทานข้าวราดแกง ฉีด NovoRapid 6U',
       });
     }
 
@@ -232,6 +238,19 @@ export function generateSeedData(): AppData {
         takenTime: '21:00',
         status: 'taken',
         injectionSite: i % 2 === 0 ? 'abdomen_top_left' : 'abdomen_top_right',
+      },
+      {
+        id: `ml_3_${i}`,
+        scheduleId: 'med_4',
+        medName: 'Insulin Aspart (NovoRapid)',
+        type: 'insulin_rapid',
+        dose: '6 ยูนิต',
+        date: dStr,
+        scheduledTime: '12:30',
+        takenTime: i === 4 ? '12:30' : '12:25',
+        status: i === 4 ? 'skipped' : 'taken',
+        injectionSite: 'abdomen_bottom_left',
+        note: i === 4 ? 'ลืมพกปากกาอินซูลินไปที่ทำงาน' : 'ฉีดก่อนอาหารกลางวัน 5 นาที',
       }
     );
 

@@ -7,6 +7,7 @@ import { Navigation, NavTab } from './components/Navigation';
 import { DashboardView } from './components/DashboardView';
 import { GlucoseView } from './components/GlucoseView';
 import { MedicationInsulinView } from './components/MedicationInsulinView';
+import { InsightsView } from './components/InsightsView';
 import { FoodCarbView } from './components/FoodCarbView';
 import { AppointmentsView } from './components/AppointmentsView';
 import { DoctorDashboardView } from './components/DoctorDashboardView';
@@ -338,6 +339,18 @@ export default function App() {
             onDeleteSchedule={handleDeleteMedSchedule}
             onLogMedication={handleLogMedication}
             onToggleScheduleActive={() => {}}
+            profile={data.profile}
+            glucoseLogs={data.glucoseLogs}
+            vitalsLogs={data.vitalsLogs}
+            onUpdateProfile={handleSaveProfile}
+          />
+        )}
+
+        {currentTab === 'insights' && (
+          <InsightsView
+            data={data}
+            onNavigateToMedication={() => setCurrentTab('medication')}
+            onNavigateToGlucose={() => setCurrentTab('glucose')}
           />
         )}
 
